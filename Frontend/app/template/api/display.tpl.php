@@ -5,5 +5,7 @@ if(file_exists($file_path)) {
     $str = fread($fp, filesize($file_path));
     echo $str = str_replace("\r\n", "<br />", $str);
     fclose($fp);
+}else{
+    echo("(QwQ)");
 }
 ?>

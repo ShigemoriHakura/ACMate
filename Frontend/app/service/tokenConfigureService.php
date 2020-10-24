@@ -23,8 +23,11 @@ class tokenConfigureService extends Service
             case 4: //礼物加减钟
                 $config = $this->handleGiftLiveTimeAmount($request, $up_id, $oldConfig);
                 break;
-            case 5: //弹幕播报
+            case 5: //下播倒计时
                 $config = $this->handleLiveTimeAmount($request, $up_id);
+                break;
+            case 6: //下播倒计时
+                $config = $this->handleDanmakuDraw($request, $up_id);
                 break;
         }
         return $config;
@@ -193,6 +196,19 @@ class tokenConfigureService extends Service
                 "liveTime" => $live,
                 "liveText1" => $text1,
                 "liveText2" => $text2
+            );
+            $config = json_encode($configArray);
+        }
+        return $config;
+    }
+
+    public function handleDanmakuDraw($request, $up_id){
+        $config = "{}";
+        $text = $request->post("text");
+        if($text){
+            $configArray = array(
+                "roomID" => $up_id,
+                "text" => $text,
             );
             $config = json_encode($configArray);
         }
