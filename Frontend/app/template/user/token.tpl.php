@@ -75,6 +75,7 @@
                                                     <td>
                                                         <? if ($v['configuration'] != "{}"){?>
                                                             <button class="btn btn-primary btn-square digits" data-clipboard-target="#copy<?=$v['id']?>"><?=_L('Token_Copy')?></button>
+                                                            <a target="blank" href="<?=$site?>/api/display/<?=$v['token']?>"><button class="btn btn-primary btn-square digits"><?=_L('Token_Enter')?></button></a>
                                                         <?}?>
                                                         <a href="/t/<?=$v['id']?>"><button class="btn btn-primary btn-square digits"><?=_L('Token_Detail')?></button></a>
                                                         <button class="btn btn-info sweet-add-<?=$v['id']?>" type="button"><?=_L('Token_Delete')?></button>

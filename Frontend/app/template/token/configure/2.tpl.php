@@ -7,6 +7,10 @@
                 <input class="form-control" type="number" name="amount" placeholder="<?= $PRM['tokenData']['config']['amount'] ?>" value="<?= $PRM['tokenData']['config']['amount'] ?>" required>
             </div>
             <div class="form-group">
+                <label class="form-label"><?= _L('Token_Follower_Amount_Text') ?></label>
+                <input class="form-control" type="text" name="text" placeholder="<?=$PRM['tokenData']['config']['text']?>" value="<?=$PRM['tokenData']['config']['text']?>" required>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-primary" type="submit"><?= _L('Token_Submit') ?></button>
             </div>
         </form>

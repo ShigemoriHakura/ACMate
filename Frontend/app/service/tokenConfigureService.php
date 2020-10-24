@@ -80,10 +80,12 @@ class tokenConfigureService extends Service
     public function handleFollowerAmount($request, $up_id){
         $config = "{}";
         $amount = $request->post("amount");
-        if($amount){
+        $text = $request->post("text");
+        if($amount && $text){
             $configArray = array(
                 "roomID" => $up_id,
-                "amount" => $amount
+                "amount" => $amount,
+                "text" => $text
             );
             $config = json_encode($configArray);
         }

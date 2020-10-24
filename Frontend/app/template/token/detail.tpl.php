@@ -52,6 +52,7 @@
                                     <input class="form-control" id="copy<?= $PRM['id'] ?>" value="<?= $site ?>/api/display/<?= $PRM['tokenData']['token'] ?>">
                                 </div>
                                 <button class="btn btn-primary btn-square digits" data-clipboard-target="#copy<?= $PRM['id'] ?>"><?= _L('Token_Copy') ?></button>
+                                <a target="blank" href="<?=$site?>/api/display/<?=$PRM['tokenData']['token']?>"><button class="btn btn-primary btn-square digits"><?=_L('Token_Enter')?></button></a>
                             <? } else { ?>
                                 <div class="form-group">
                                     <label class="form-label"><?= _L('Token_Link') ?></label>
