@@ -48,6 +48,9 @@ return array(
     'Token_TTS_Volume' => '音量（0-15）',
     'Token_TTS_Gift'   => '播报礼物',
     'Token_TTS_Person' => '音库',
+    'Token_FX' => '特效',
+    'Token_FX_Snow' => '下雪',
+    'Token_FX_Sakura' => '樱花飘落',
     'Token_Submit' => '提交',
 
 

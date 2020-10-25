@@ -26,8 +26,14 @@ class tokenConfigureService extends Service
             case 5: //下播倒计时
                 $config = $this->handleLiveTimeAmount($request, $up_id);
                 break;
-            case 6: //下播倒计时
+            case 6: //弹幕抽奖
                 $config = $this->handleDanmakuDraw($request, $up_id);
+                break;
+            case 7: //弹幕点歌
+                $config = $this->handleDanmakuSong($request, $up_id);
+                break;
+            case 8: //特效浮层
+                $config = $this->handleFX($request, $up_id);
                 break;
         }
         return $config;
@@ -215,4 +221,29 @@ class tokenConfigureService extends Service
         return $config;
     }
 
+    public function handleDanmakuSong($request, $up_id){
+        $config = "{}";
+        $text = $request->post("text");
+        if($text){
+            $configArray = array(
+                "roomID" => $up_id,
+                "text" => $text,
+            );
+            $config = json_encode($configArray);
+        }
+        return $config;
+    }
+
+    public function handleFX($request, $up_id){
+        $config = "{}";
+        $fx = $request->post("fx");
+        if($fx){
+            $configArray = array(
+                "roomID" => $up_id,
+                "fx" => $fx
+            );
+            $config = json_encode($configArray);
+        }
+        return $config;
+    }
 }
