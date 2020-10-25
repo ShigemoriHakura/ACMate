@@ -24,7 +24,24 @@ class apiAction extends baseAction
 		$data = $this->curl_file_get_contents($url);
 		return $data;
     }
+    
+    public function action_commentapi($commentid, $page)
+    {
+        if(!$commentid){
+            return $this->displayJson(0, "No Up Id");
+        }
+        $url = "https://www.acfun.cn/rest/pc-direct/comment/list?sourceId=" . $commentid . "&sourceType=3&page=" . $page;
+		$data = $this->curl_file_get_contents($url);
+		return $data;
+    }
 
+    public function action_gifts(){
+        $giftData = $this->danmakuGiftTypeDAO->filter([
+            'status' => 1,
+        ])->order(array('id' => 'ASC'))->query();
+        return $this->displayJson(1, $giftData);
+    }
+    
     public function action_display($token)
     {
         if(!$token){

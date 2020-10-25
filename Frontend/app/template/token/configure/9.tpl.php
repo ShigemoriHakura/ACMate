@@ -3,11 +3,8 @@
         <form class="form theme-form" action="<?= $webRoot ?>/t/e/<?= $PRM['tokenData']['id'] ?>" method="POST">
             <input type="text" name="_csrf" hidden value="<?= $this->getCsrfToken() ?>"/>
             <div class="form-group">
-                <label class="form-label"><?= _L('Token_FX') ?></label>
-                <select class="form-control digits" name="fx">
-                    <option value="snow" <?if($PRM['tokenData']['config']['fx'] == "snow"){echo("selected");}?>><?= _L('Token_FX_Snow') ?></option>
-                    <option value="sakura" <?if($PRM['tokenData']['config']['fx'] == "sakura"){echo("selected");}?>><?= _L('Token_FX_Sakura') ?></option>
-                </select>
+                <label class="form-label"><?= _L('Token_Live_Text') ?></label>
+                <input class="form-control" type="text" name="text" placeholder="<?=$PRM['tokenData']['config']['text']?>" value="<?=$PRM['tokenData']['config']['text']?>" required>
             </div>
             <div class="form-group">
                 <button class="btn btn-primary" type="submit"><?= _L('Token_Submit') ?></button>

@@ -35,6 +35,9 @@ class tokenConfigureService extends Service
             case 8: //特效浮层
                 $config = $this->handleFX($request, $up_id);
                 break;
+            case 9: //评论抽奖
+                $config = $this->handleCommentDraw($request, $up_id);
+                break;
         }
         return $config;
     }
@@ -246,4 +249,18 @@ class tokenConfigureService extends Service
         }
         return $config;
     }
+
+    public function handleCommentDraw($request, $up_id){
+        $config = "{}";
+        $text = $request->post("text");
+        if($text){
+            $configArray = array(
+                "roomID" => $up_id,
+                "text" => $text,
+            );
+            $config = json_encode($configArray);
+        }
+        return $config;
+    }
+
 }
